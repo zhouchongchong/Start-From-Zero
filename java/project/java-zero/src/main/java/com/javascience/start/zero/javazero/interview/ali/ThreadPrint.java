@@ -7,18 +7,15 @@ import java.util.concurrent.CountDownLatch;
  * Created by 76409 on 9:47 2020/5/28.
  * @Description:
  */
-public class ThreadPrint
-{
+public class ThreadPrint {
 	private static volatile int count = 0;
 	private static Object lock = new Object();
 
-	public static void main(String[] args) throws InterruptedException
-	{
+	public static void main(String[] args) throws InterruptedException {
 		final CountDownLatch countDownLatch = new CountDownLatch(3);
 		String[] words = {"a", "l", "i"};
 		Long timeStart = System.currentTimeMillis();
-		for (int i = 0; i < 3; i++)
-		{
+		for (int i = 0; i < 3; i++) {
 			new Thread(new Print(words[i], i, countDownLatch, 1000)).start();
 		}
 		countDownLatch.await();
@@ -27,15 +24,13 @@ public class ThreadPrint
 
 	}
 
-	static class Print implements Runnable
-	{
+	static class Print implements Runnable {
 		private String printWord;
 		private int flag;
 		private CountDownLatch countDownLatch;
 		private long printNumber;
 
-		public Print(String printWord, int flag, CountDownLatch countDownLatch, int num)
-		{
+		public Print(String printWord, int flag, CountDownLatch countDownLatch, int num) {
 			this.printWord = printWord;
 			this.flag = flag;
 			this.countDownLatch = countDownLatch;
@@ -44,26 +39,19 @@ public class ThreadPrint
 
 
 		@Override
-		public void run()
-		{
-			for (int i = 0; i < printNumber; )
-			{
-				synchronized (lock)
-				{
-					try
-					{
-						if (count == flag)
-						{
+		public void run() {
+			for (int i = 0; i < printNumber; ) {
+				synchronized (lock) {
+					try {
+						if (count == flag) {
 							System.out.print(printWord);
 							count = ++count % 3;
 							i++;
 							lock.notifyAll();
-						} else
-						{
+						} else {
 							lock.wait();
 						}
-					} catch (InterruptedException e)
-					{
+					} catch (InterruptedException e) {
 						System.out.println(e.getCause());
 					}
 

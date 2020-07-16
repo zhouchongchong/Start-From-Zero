@@ -7,13 +7,11 @@ import java.util.concurrent.CountDownLatch;
  * Created by 76409 on 14:15 2020/5/28.
  * @Description:
  */
-public class ThreadPrint2
-{
+public class ThreadPrint2 {
 	private static String[] strs = {"a", "l", "i"};
 	private static String[] plocks = {"i", "a", "l"};
 
-	public static void main(String[] args) throws InterruptedException
-	{
+	public static void main(String[] args) throws InterruptedException {
 		long t = System.currentTimeMillis();
 		for (int i = 0; i < 3; i++) {
 			// a i = l a
@@ -27,6 +25,7 @@ public class ThreadPrint2
 	static class Print implements Runnable {
 		String content;
 		String plock;
+
 		public Print(String content, String plock) {
 			this.content = content;
 			this.plock = plock;
@@ -41,7 +40,7 @@ public class ThreadPrint2
 					synchronized (content) {
 						//打印 这个
 //						System.out.println(content + " : " + plock);
-						System.out.print(content );
+						System.out.print(content);
 						content.notify();
 					}
 

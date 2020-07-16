@@ -1,17 +1,17 @@
 {
-    "java.home": "/usr/java/jdk1.8.0_241",
-    "maven.executable.path": "/usr/maven/apache-maven-3.6.3",
-    "java.configuration.maven.userSettings": "/usr/maven/apache-maven-3.6.3/conf/settings.xml",
-    "maven.terminal.customEnv": [
-        {
-            "environmentVariable": "JAVA_HOME",       
-            "value": "/usr/java/jdk1.8.0_241"       
-        }
-    ],
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
+  "java.home": "/usr/java/jdk1.8.0_241",
+  "maven.executable.path": "/usr/maven/apache-maven-3.6.3",
+  "java.configuration.maven.userSettings": "/usr/maven/apache-maven-3.6.3/conf/settings.xml",
+  "maven.terminal.customEnv": [
+    {
+      "environmentVariable": "JAVA_HOME",
+      "value": "/usr/java/jdk1.8.0_241"
+    }
+  ],
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  }
 }

@@ -77,7 +77,7 @@ class DemoApplicationTests {
 	}
 
 	@Test
-	public  void computePrime() {
+	public void computePrime() {
 		BitSet sieve = new BitSet(1024);
 		int size = sieve.size();
 		for (int i = 2; i < size; i++)
@@ -105,7 +105,7 @@ class DemoApplicationTests {
 	 */
 	@Test
 	public void sortArray() {
-		int[] array = new int[] { 423, 700, 9999, 2323, 356, 6400, 1,2,3,2,2,2,2 };
+		int[] array = new int[]{423, 700, 9999, 2323, 356, 6400, 1, 2, 3, 2, 2, 2, 2};
 		BitSet bitSet = new BitSet(2 << 13);
 		// 虽然可以自动扩容，但尽量在构造时指定估算大小,默认为64
 		System.out.println("BitSet size: " + bitSet.size());
@@ -114,7 +114,7 @@ class DemoApplicationTests {
 			bitSet.set(array[i]);
 		}
 		//剔除重复数字后的元素个数
-		int bitLen=bitSet.cardinality();
+		int bitLen = bitSet.cardinality();
 
 		//进行排序，即把bit为true的元素复制到另一个数组
 		int[] orderedArray = new int[bitLen];
@@ -131,15 +131,16 @@ class DemoApplicationTests {
 		System.out.println("iterate over the true bits in a BitSet");
 		//或直接迭代BitSet中bit为true的元素iterate over the true bits in a BitSet
 		for (int i = bitSet.nextSetBit(0); i >= 0; i = bitSet.nextSetBit(i + 1)) {
-			System.out.print(i+"\t");
+			System.out.print(i + "\t");
 		}
 		System.out.println("---------------------------");
 	}
+
 	@Test
-	public void sum(){
+	public void sum() {
 		Long sum = 0L;
 		Long t1 = System.currentTimeMillis();
-		for (long i = 1; i < 10000000; i++){
+		for (long i = 1; i < 10000000; i++) {
 			sum += i;
 		}
 		System.out.println(System.currentTimeMillis() - t1);

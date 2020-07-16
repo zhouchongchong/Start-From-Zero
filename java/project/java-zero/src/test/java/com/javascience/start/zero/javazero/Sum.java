@@ -13,9 +13,9 @@ import java.util.concurrent.atomic.AtomicLong;
 public class Sum {
 
 
-	private static final int TIMES =10*1000*1000;
+	private static final int TIMES = 10 * 1000 * 1000;
 
-	public static void main(String[] args)throws Exception {
+	public static void main(String[] args) throws Exception {
 
 		final CountDownLatch c = new CountDownLatch(TIMES);
 
@@ -41,23 +41,23 @@ public class Sum {
 	}
 }
 
-	class Accumulator {
+class Accumulator {
 
-		private AtomicLong sum = new AtomicLong(0L);
+	private AtomicLong sum = new AtomicLong(0L);
 
-		private CountDownLatch c;
+	private CountDownLatch c;
 
-		public Accumulator(CountDownLatch c) {
+	public Accumulator(CountDownLatch c) {
 
-			this.c = c;
-		}
-
-		AtomicLong getSum () {
-
-			return sum;
-		}
-
-		public void add(long k) {
-			sum.addAndGet(k);
-		}
+		this.c = c;
 	}
+
+	AtomicLong getSum() {
+
+		return sum;
+	}
+
+	public void add(long k) {
+		sum.addAndGet(k);
+	}
+}
