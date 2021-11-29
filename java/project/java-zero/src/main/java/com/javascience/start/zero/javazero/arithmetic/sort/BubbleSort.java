@@ -1,7 +1,5 @@
 package com.javascience.start.zero.javazero.arithmetic.sort;
 
-import com.javascience.start.zero.javazero.arithmetic.sort.inter.Sort;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
